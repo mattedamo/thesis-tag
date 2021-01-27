@@ -4,7 +4,7 @@ def main():
     #devo fare una versione sia per l'hotfix, sia una per la release, qua le metto tutte e 2
     #differenziando i due flow
     #type_branch = "hotfix"
-    print(sys.argv)
+    #print(sys.argv)
     list = (sys.argv)
     del list[0]
     if len(list) == 0:
