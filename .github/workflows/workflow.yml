@@ -39,4 +39,3 @@ jobs:
           git checkout master
           git tag -a ${{steps.extract_tag.outputs.new-tag}} HEAD -m "added tag"
           git push --tags
-          git push origin develop
