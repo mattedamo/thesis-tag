@@ -2,13 +2,10 @@ name: tagging
 
 on:
   pull_request:
-    types: [closed]
-    
-
+    types: closed
 jobs:
-  
   pr:
-    name: pr
+    name: pull request
     runs-on: ubuntu-latest
     steps:
       - run: env
