@@ -1,0 +1,12 @@
+name: master-push
+
+on:
+  push:
+    branches:
+      master
+jobs:
+  push:
+    name: master push
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
