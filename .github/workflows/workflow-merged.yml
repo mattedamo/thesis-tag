@@ -1,0 +1,14 @@
+name: tagging
+
+on:
+  pull_request:
+    types: [closed]
+    
+
+jobs:
+  
+  pr:
+    name: pr
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
