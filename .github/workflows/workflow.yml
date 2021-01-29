@@ -3,7 +3,8 @@ name: tagging
 on:
   push:
     branches: 
-      - master
+      #- master
+      babio
 
 jobs:
   
