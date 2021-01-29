@@ -11,20 +11,21 @@ jobs:
     steps:
       - run: env
     
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=new-tag;]$(declare -a list=$(git tag); python3 generate-tag.py ${list[*]})"
-        id: extract_tag
+      
         
       - name: Sleep for 30 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'
+          time: '5s'
       
       - name: checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Extract tag
+        shell: bash
+        run: echo "##[set-output name=new-tag;]$(declare -a list=$(git tag); python3 generate-tag.py ${list[*]})"
+        id: extract_tag
 
     
       - run: |
