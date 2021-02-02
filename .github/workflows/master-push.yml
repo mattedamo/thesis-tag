@@ -12,12 +12,9 @@ jobs:
     steps:
 
       - run: |
-          if [ "${{env.input_flag}}" -eq "true" ]
-          then
-          echo "::set-output name=flag::t"
-          else
-          echo "::set-output name=flag::f"
+          echo "##[set-output name=a;]$(echo "a")"
+          echo "##[set-output name=b;]$(echo "b")"
         id: esito
       - run: |
-          echo ${{steps.esito.outputs.flag}}
+          echo ${{steps.esito.outputs.a}} , ${{steps.esito.outputs.b}}
   
