@@ -1,12 +1,12 @@
 name: wf-push
-env:
-  INPUT_FLAG: ${{ secrets.DEFAULT_INPUT_FLAG }}
 
 on:
   push
 jobs:
   push1:
     #if: ${{default_input_flag == "true"}}
+    env:
+      input_flag: ${{secrets.DEFAULT_INPUT_FLAG}}
     name: flag_true
     runs-on: ubuntu-latest
     steps:
@@ -17,12 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $INPUT_FLAG
-          var=$INPUT_FLAG
-          if [ $var == "" ]; then echo "false"
-          elif [ $var == "false" ]; then echo "false"
-          elif [ $var == "true"  ]; then echo "true"
-          else 
-          echo "stop"
-          fi
+          echo $input_flag
+        if: input_flag == "true"
+      - run: |
+          echo $input_flag
+        if: input_flag == "false"
           
