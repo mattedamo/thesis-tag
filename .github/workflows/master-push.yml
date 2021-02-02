@@ -12,7 +12,6 @@ jobs:
     steps:
       - run: echo "true"
         if: env.input_flag == 'true'
-      - run: echo "true"
-        if: env.input_flag != 'true'
       - run: echo "false"
+        if: env.input_flag != 'true'
   
