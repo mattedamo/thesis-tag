@@ -10,7 +10,7 @@ jobs:
     name: flag_true
     runs-on: ubuntu-latest
     steps:
-      - run: echo $default_input_flag
+      - run: env
   push2:
     #if: ${{ default_input_flag == "false" }}
     name: flag_false
