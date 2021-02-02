@@ -1,12 +1,17 @@
-name: master-push
+name: wf-push
 
 on:
-  push:
-    branches:
-      master
+  push
 jobs:
-  push:
-    name: master push
+  push1:
+    if: ${{ secrets.DEFAULT_INPUT_FLAG }} == "true"
+    name: flag_true
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+  push2:
+    if: ${{ secrets.DEFAULT_INPUT_FLAG }} == "false"
+    name: flag_false
     runs-on: ubuntu-latest
     steps:
       - run: env
