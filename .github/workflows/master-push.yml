@@ -6,14 +6,14 @@ on:
   push
 jobs:
   push1:
-    if: ${{default_input_flag == "true"}}
+    #if: ${{default_input_flag == "true"}}
     name: flag_true
     runs-on: ubuntu-latest
     steps:
-      - run: env
+      - run: echo $default_input_flag
   push2:
-    if: ${{ default_input_flag == "false" }}
+    #if: ${{ default_input_flag == "false" }}
     name: flag_false
     runs-on: ubuntu-latest
     steps:
-      - run: env
+      - run: echo $default_input_flag
