@@ -1,16 +1,18 @@
 name: wf-push
+env:
+  default_input_flag: ${{ secrets.DEFAULT_INPUT_FLAG }}
 
 on:
   push
 jobs:
   push1:
-    if: ${{secrets.DEFAULT_INPUT_FLAG == "true"}}
+    if: ${{default_input_flag == "true"}}
     name: flag_true
     runs-on: ubuntu-latest
     steps:
       - run: env
   push2:
-    if: ${{ secrets.DEFAULT_INPUT_FLAG == "false" }}
+    if: ${{ default_input_flag == "false" }}
     name: flag_false
     runs-on: ubuntu-latest
     steps:
