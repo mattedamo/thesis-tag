@@ -10,16 +10,9 @@ jobs:
     name: flag_true
     runs-on: ubuntu-latest
     steps:
-      - run: env
-  push2:
-    #if: ${{ default_input_flag == "false" }}
-    name: flag_false
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo $input_flag
-        if: input_flag == "true"
-      - run: |
-          echo $input_flag
-        if: input_flag == "false"
-          
+      - run: echo "true"
+        if: env.input_flag == "true"
+      - run: echo "true"
+        if: env.input_flag != "true"
+      - run: echo "false"
+  
