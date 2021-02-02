@@ -4,13 +4,13 @@ on:
   push
 jobs:
   push1:
-    if: secrets.DEFAULT_INPUT_FLAG == "true"
+    if: ${{secrets.DEFAULT_INPUT_FLAG == "true"}}
     name: flag_true
     runs-on: ubuntu-latest
     steps:
       - run: env
   push2:
-    if: secrets.DEFAULT_INPUT_FLAG == "false"
+    if: ${{ secrets.DEFAULT_INPUT_FLAG == "false" }}
     name: flag_false
     runs-on: ubuntu-latest
     steps:
