@@ -12,7 +12,8 @@ jobs:
     steps:
 
       - run: |
-          if [ ${{env.input_flag}} == "true" ]; then
+          if [ "${{env.input_flag}}" -eq "true" ]
+          then
           echo "::set-output name=flag::t"
           else
           echo "::set-output name=flag::f"
