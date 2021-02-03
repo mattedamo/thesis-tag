@@ -1,0 +1,2 @@
+app-name: myapp
+argocd-repo: repo-argocd
