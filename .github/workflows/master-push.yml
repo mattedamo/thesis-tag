@@ -13,6 +13,8 @@ jobs:
           echo "##[set-output name=b;]$(echo "b")"
         id: esito
       - run: |
+          var = ${{steps.esito.outputs.a}}
+          echo $var
           echo ${{steps.esito.outputs.a}} , ${{steps.esito.outputs.b}}
   pat-vida:
     name: pat vida
