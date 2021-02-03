@@ -8,18 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - run: |
-          echo "##[set-output name=a;]$(echo "a")"
-          echo "##[set-output name=b;]$(echo "b")"
-        id: esito
-      - run: |
-          var="${{steps.esito.outputs.a}}"
-          echo $var
-          echo ${{steps.esito.outputs.a}} , ${{steps.esito.outputs.b}}
-  pat-vida:
-    name: pat vida
-    runs-on: ubuntu-latest
-    needs: [push1]
-    steps:
-      - run: echo ${{steps.esito.outputs.a}}
+    - name: checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with: 
+        python-version: "3.x"
+    - run: pip install PyYAML
+      name: Install py dependencies
+
+    - name: error
+      run: python error-stop-wf.py
+    
+    - name: non dovrebbe partire
+      run: echo "e alla fine sono uscito"
 
